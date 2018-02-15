@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import time
+import sys
 import traceback
 from coords import parse_dms
 from pyscraper.selenium_utils import wait_for_xpath, get_headed_driver, wait_for_classname, wait_for_tag, wait_for_visible_id
@@ -65,7 +66,7 @@ def get_by_region(driver, href, output):
 
 
 driver = get_headed_driver(no_sandbox=True)
-output = DataFile('420')
+output = DataFile(sys.argv[0])
 with output:
     try:
         driver.get('https://www.leafly.com/finder/browse')
