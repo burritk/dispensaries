@@ -57,7 +57,7 @@ def get_by_region(driver, href, output):
             driver.back()
 
 
-driver = get_headless_driver()
+driver = get_headless_driver(no_sandbox=True)
 output = DataFile('420')
 with output:
     try:
