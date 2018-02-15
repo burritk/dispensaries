@@ -32,7 +32,7 @@ def get_by_region(driver, href, output):
             iframe = driver.find_element_by_tag_name('iframe')
             driver.switch_to.frame(iframe)
             try:
-                map_degrees = wait_for_xpath(driver, '//*[@id="mapDiv"]/div/div/div[9]/div/div/div/div[1]/div[1]')
+                map_degrees = wait_for_xpath(driver, '//*[@id="mapDiv"]/div/div/div[9]/div/div/div/div[1]/div[1]', time=30)
             except:
                 map_degrees = driver.find_element_by_xpath('//*[@id="mapDiv"]/div/div/div[9]/div/div/div/div[1]/div[1]')
             degrees = map_degrees.text
@@ -65,7 +65,7 @@ def get_by_region(driver, href, output):
             driver.back()
 
 
-driver = get_headed_driver(no_sandbox=True)
+driver = get_headless_driver(no_sandbox=True)
 output = DataFile(sys.argv[1])
 with output:
     try:
