@@ -7,10 +7,12 @@ from pyscraper.selenium_utils import get_headless_driver
 
 def get_by_region(driver, href, output):
     driver.get(href)
+    print href
     wait_for_classname(driver, 'finder-listing')
     wait_for_classname(driver, 'gutter-bottom-xxs')
     dispensaries = driver.find_elements_by_class_name('finder-listing')
     for d_index in range(1, len(dispensaries)):
+        print 'Dispensary', d_index
         wait_for_classname(driver, 'finder-listing')
         wait_for_classname(driver, 'gutter-bottom-xxs')
         dispensaries = driver.find_elements_by_class_name('finder-listing')
