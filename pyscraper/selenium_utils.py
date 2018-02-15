@@ -18,11 +18,16 @@ def get_headless_driver(no_sandbox=False):
 
     return driver
 
-def get_headed_driver():
+
+def get_headed_driver(no_sandbox=False):
+    chrome_options = Options()
+    if no_sandbox:
+        chrome_options.add_argument('--no-sandbox')
     current_path = os.path.dirname(__file__)
     filename = os.path.join(current_path, 'chromedriver')
     driver = webdriver.Chrome(filename)
     return driver
+
 
 def wait_for_xpath(driver, xpath, time=10): # add if_exists
     element = WebDriverWait(driver, time).until(  # wait for form
@@ -30,11 +35,13 @@ def wait_for_xpath(driver, xpath, time=10): # add if_exists
     )
     return element
 
+
 def wait_for_tag(driver, tag, time=10): # add if_exists
     element = WebDriverWait(driver, time).until(  # wait for form
         EC.presence_of_element_located((By.TAG_NAME, tag))
     )
     return element
+
 
 def wait_for_classname(driver, classname, time=10):
     element = WebDriverWait(driver, time).until(
@@ -42,11 +49,13 @@ def wait_for_classname(driver, classname, time=10):
     )
     return element
 
+
 def wait_for_id(driver, id, time=10):
     element = WebDriverWait(driver, time).until(
         EC.presence_of_element_located((By.ID, id))
     )
     return element
+
 
 def wait_for_visible_id(driver, id, time=10):
     element = WebDriverWait(driver, time).until(
