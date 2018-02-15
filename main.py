@@ -66,7 +66,7 @@ def get_by_region(driver, href, output):
 
 
 driver = get_headed_driver(no_sandbox=True)
-output = DataFile(sys.argv[0])
+output = DataFile(sys.argv[1])
 with output:
     try:
         driver.get('https://www.leafly.com/finder/browse')
