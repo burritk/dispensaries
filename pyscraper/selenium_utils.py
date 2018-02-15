@@ -25,7 +25,7 @@ def get_headed_driver(no_sandbox=False):
         chrome_options.add_argument('--no-sandbox')
     current_path = os.path.dirname(__file__)
     filename = os.path.join(current_path, 'chromedriver')
-    driver = webdriver.Chrome(filename)
+    driver = webdriver.Chrome(filename, chrome_options=chrome_options)
     return driver
 
 
