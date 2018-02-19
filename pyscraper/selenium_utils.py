@@ -69,3 +69,12 @@ def get_selenium_xpath_if_exists(driver, xpath):
         return ''
     text = driver.find_element_by_xpath(xpath) if 'text' in xpath else driver.find_element_by_xpath(xpath).text
     return text.strip() if text else ''
+
+# GET.XPATH.IF.EXISTS
+# class Selenium:
+#     @@property
+#     def get(self):
+#         return
+#
+# class get:
+#
